@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Running tests'
                 withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonartoken') {
                     sh '/opt/apache-maven/bin/mvn sonar:sonar -Dsonar.projectKey=studentapp'
             }
