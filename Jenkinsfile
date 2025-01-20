@@ -24,9 +24,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                sh '''sudo /opt/apache-tomcat/bin/catalina.sh stop
-                      sudo mv target/*.war /opt/apache- tomcat/webapps/student.war
-                      sudo /opt/apache-tomcat/bin/catalina.sh start'''
+                sh '''/opt/apache-tomcat/bin/catalina.sh stop
+                      mv target/*.war /opt/apache- tomcat/webapps/student.war
+                      /opt/apache-tomcat/bin/catalina.sh start'''
             }
         }
     }
