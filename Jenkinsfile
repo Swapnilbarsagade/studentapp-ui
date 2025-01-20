@@ -16,14 +16,17 @@ pipeline {
                 sh '/opt/apache-maven/bin/mvn clean package'
             }
         }
-        stage('Test') {  // Define a stage named "Test"
+        stage('Test') {
             steps {
                 echo 'Running tests...'  // Command or script to run
             }
         }
-        stage('Deploy') {  // Define a stage named "Deploy"
+        stage('Deploy') {
             steps {
-                echo 'Deploying the application...'  // Command or script to run
+                echo 'Deploying the application...'
+                sh '''/opt/apache-tomcat/bin/catalina.sh stop
+                      mv target/*.war /opt/apache- tomcat/webapps/student.war
+                      /opt/apache-tomcat/bin/catalina.sh start'''
             }
         }
     }
