@@ -12,7 +12,7 @@ pipeline {
 
         stage ('build') {
             steps {
-                echo 'building the source code'
+                sh '/opt/apache-maven/bin/mvn clean package'
             }
         }
     }
